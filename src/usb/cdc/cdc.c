@@ -14,10 +14,11 @@
 #include "print_funcs.h"
 
 // libavr32
-#include "events.h"
 #include "conf_usb_host.h"
-#include "uhi_cdc.h"
+#include "events.h"
 #include "cdc.h"
+#include "monome.h"
+
 
 static bool cdc_available = false;
 
@@ -39,6 +40,7 @@ bool callback_cdc_change(uhc_device_t* dev, bool b_plug) {
    } else {
       cdc_available = false;
    }
+   return 0;
 }
 
 // This callback is called when a new data are received. 

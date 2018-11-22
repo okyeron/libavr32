@@ -85,6 +85,7 @@
 #include "usb.h"
 #include "uhi_msc.h"
 #include "msc.h"
+#include "cdc.h"
 #include "uhi_cdc.h" 
 
 #endif // _CONF_USB_HOST_H_
