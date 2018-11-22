@@ -45,11 +45,16 @@
  */
 
 #include "conf_usb_host.h"
+
 #include "usb_protocol.h"
 #include "uhd.h"
 #include "uhc.h"
-#include "uhi_cdc.h"
 #include <string.h>
+
+// libavr32
+#include "cdc.h"
+#include "uhi_cdc.h"
+
 
 #ifdef USB_HOST_HUB_SUPPORT
 #  error USB HUB support is not implemented on UHI CDC

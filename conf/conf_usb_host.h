@@ -73,12 +73,10 @@
 
 #define UHI_MSC_CHANGE(dev,b_plug) msc_change(dev, b_plug)
 
-// CDC functions
-#define UHI_CDC_CHANGE(dev, b_plug) cdc_change(dev, b_plug)
-extern bool cdc_change(uhc_device_t* dev, bool b_plug);
 
-#define UHI_CDC_RX_NOTIFY() cdc_rx_notify()
-extern void cdc_rx_notify(void);
+// CDC functions
+#define UHI_CDC_CHANGE(dev, b_plug) callback_cdc_change(dev, b_plug)
+#define UHI_CDC_RX_NOTIFY() callback_cdc_rx_notify()
 
 #include "uhi_ftdi.h"
 #include "uhi_hid.h"

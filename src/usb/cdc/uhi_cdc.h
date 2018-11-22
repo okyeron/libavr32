@@ -56,6 +56,7 @@
 extern "C" {
 #endif
 
+
 /**
  * \ingroup uhi_cdc_group
  * \defgroup uhi_cdc_group_uhc Interface with USB Host Core (UHC)

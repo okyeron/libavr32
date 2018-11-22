@@ -33,10 +33,10 @@ void usb_vbus_error(void) {
 
 // usb connection callback
 void usb_connection(uhc_device_t *dev, bool b_present) {
-    // print_dbg("\r\n usb device connection: ");
-    // print_dbg_hex(dev);
-    // print_dbg(" , ");
-    // print_dbg_ulong(b_present);
+   //  print_dbg("\r\n usb device connection: ");
+   //  print_dbg_hex(dev);
+	// print_dbg(" , ");
+   //  print_dbg_ulong(b_present);
 }
 
 // usb wakeup callback

@@ -17,12 +17,13 @@
 #include "events.h"
 #include "conf_usb_host.h"
 #include "uhi_cdc.h"
+#include "cdc.h"
 
 static bool cdc_available = false;
 
 // This callback is called when a USB device CDC is plugged or unplugged. 
 // The communication port can be opened and configured here.
-bool cdc_change(uhc_device_t* dev, bool b_plug) {
+bool callback_cdc_change(uhc_device_t* dev, bool b_plug) {
    if (b_plug) {
       // USB Device CDC connected
       cdc_available = true;
@@ -42,7 +43,7 @@ bool cdc_change(uhc_device_t* dev, bool b_plug) {
 
 // This callback is called when a new data are received. 
 // This can be used to manage data reception through interrupt and avoid pooling.
-void cdc_rx_notify(void) {
+void callback_cdc_rx_notify(void) {
    // Wakeup my_task_rx() task
 }
 #define MESSAGE "Hello"
