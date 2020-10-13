@@ -3,6 +3,8 @@
 
 #include "uhc.h"
 
+#define CDC_RX_BUF_SIZE 256
+
 extern bool callback_cdc_change(uhc_device_t* dev, bool b_plug);
 
 extern void callback_cdc_rx_notify(void);

@@ -31,6 +31,9 @@ extern void ftdi_read(void);
 // write to FTDI device
 extern void ftdi_write(u8* data, u32 bytes);
 
+// hack to write both the byte count and buffer contents
+extern void ftdi_write_rx_buf(u8* buf, u8 count);
+
 // FTDI device was plugged or unplugged
 extern void ftdi_change(uhc_device_t* dev, u8 plug);
 // main-loop setup routine for new device connection

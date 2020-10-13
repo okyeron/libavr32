@@ -95,6 +95,12 @@ void ftdi_read(void) {
   }
 }
 
+void ftdi_write_rx_buf(u8* buf, u8 count) { 
+  rxBytes = count;
+  for (u8 i=0; i<count; ++i) { 
+    rxBuf[i+2] = buf[i]; // <- the +2 offset is to skip the status byte field, which is also skipped when reading 
+  }
+}
 
 // respond to connection or disconnection of ftdi device.
 // may be called from an interrupt

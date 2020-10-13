@@ -18,9 +18,12 @@
 #include "events.h"
 #include "cdc.h"
 #include "monome.h"
-
+#include "ftdi.h"
 
 static bool cdc_available = false;
+
+static u8 rxBuf [CDC_RX_BUF_SIZE];
+static u8 rxBytes = 0;
 
 // This callback is called when a USB device CDC is plugged or unplugged. 
 // The communication port can be opened and configured here.
@@ -48,6 +51,7 @@ bool callback_cdc_change(uhc_device_t* dev, bool b_plug) {
 void callback_cdc_rx_notify(void) {
    // Wakeup my_task_rx() task
 }
+
 #define MESSAGE "Hello"
 void my_task(void)
 {
@@ -67,7 +71,16 @@ void my_task(void)
 }
 void my_task_rx(void)
 {
-   while (uhi_cdc_is_rx_ready(0)) {
-      int value = uhi_cdc_getc(0);
+    rxBytes = 0;
+    while (uhi_cdc_is_rx_ready(0)) {
+        int value = uhi_cdc_getc(0);
+        rxBuf[rxBytes++] = (u8)value;
+        if (value != '\0') {
+            print_dbg("\r\n REC MESSAGE: ");
+            print_dbg_hex(value);
+        }
    }
+   ///  ...[A]... call monomeserial parser somehow ????
+   ftdi_write_rx_buf(rxBuf, rxBytes);
+   (*monome_read_serial)();
 }
