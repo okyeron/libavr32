@@ -21,14 +21,23 @@
 #define ER301_2             0x32
 #define ER301_3             0x33
 #define FADER               0x34
-#define TETRAPAD            0x35
-#define TETRAPAD_2          0x36
-#define TETRAPAD_3          0x37
+#define FADER_2             0x35
+#define FADER_3             0x36
+#define FADER_4             0x37
 #define MATRIXARCHATE       0x38
 #define MATRIXARCHATE_2     0x39
 #define MATRIXARCHATE_3     0x3A
+#define TETRAPAD            0x3B
+#define TETRAPAD_2          0x3C
+#define TETRAPAD_3          0x3D
+#define TETRAPAD_4          0x3E
 
 #define ORCA                0x40
+
+#define DISTING_EX_1        0x41
+#define DISTING_EX_2        0x42
+#define DISTING_EX_3        0x43
+#define DISTING_EX_4        0x44
 
 #define ES                  0x50
 
@@ -53,10 +62,15 @@
 #define TELEXI_7            0x6F
 
 #define JF_ADDR             0x70
-#define WS_ADDR             0x71
-#define WS_ADDR_2           0x72
-#define WS_ADDR_3           0x73
-#define WS_ADDR_4           0x74
+#define WS_T_ADDR           0x71
+#define WS_T_ADDR_2         0x72
+// 0x73 RESERVED
+// 0x74 RESERVED
+#define JF_ADDR_2           0x75
+#define WS_S_ADDR           0x76
+#define WS_S_ADDR_2         0x77
+#define WS_D_ADDR           0x78
+#define WS_D_ADDR_2         0x79
 
 // COMMANDS
 // new commands can overlap with existing ones
@@ -124,6 +138,7 @@
 #define II_ANSIBLE_CV_OFF   8
 #define II_ANSIBLE_CV_SET   9
 #define II_ANSIBLE_INPUT    10
+#define II_ANSIBLE_APP      15
 
 #define II_MID_SLEW     1
 #define II_MID_SHIFT    2
@@ -141,6 +156,11 @@
 #define II_ARP_FILL     10
 #define II_ARP_ER       11
 
+#define II_GRID_KEY     16
+#define II_GRID_LED     17
+#define II_ARC_ENC      24
+#define II_ARC_LED      25
+
 #define II_KR_PRESET    0
 #define II_KR_PATTERN   1
 #define II_KR_SCALE     2
@@ -153,6 +173,10 @@
 #define II_KR_MUTE      9
 #define II_KR_TMUTE     10
 #define II_KR_CLK       11
+#define II_KR_PAGE      12
+#define II_KR_CUE       13
+#define II_KR_DIR       14
+#define II_KR_DURATION  15
 
 #define II_MP_PRESET    0
 #define II_MP_RESET     1
@@ -175,6 +199,7 @@
 #define II_CY_REV       3
 #define II_CY_CV        4
 
+
 #define JF_TR       1
 #define JF_RMODE    2
 #define JF_RUN      3
@@ -192,3 +217,52 @@
 #define WS_PLAY 2
 #define WS_LOOP 3
 #define WS_CUE  4
+
+#define WS_S_VEL          2
+#define WS_S_PITCH        3
+#define WS_S_VOX          4
+#define WS_S_NOTE         5
+#define WS_S_AR_MODE      7
+#define WS_S_CURVE        8
+#define WS_S_RAMP         9
+#define WS_S_FM_INDEX     10
+#define WS_S_FM_RATIO     11
+#define WS_S_LPG_TIME     12
+#define WS_S_LPG_SYMMETRY 13
+#define WS_S_PATCH        14
+#define WS_S_VOICES       15
+#define WS_S_FM_ENV       16
+
+#define WS_D_FEEDBACK   2
+#define WS_D_MIX        3
+#define WS_D_LOWPASS    4
+#define WS_D_FREEZE     5
+#define WS_D_TIME       6
+#define WS_D_LENGTH     7
+#define WS_D_POSITION   8
+#define WS_D_CUT        9
+#define WS_D_FREQ_RANGE 10
+#define WS_D_RATE       11
+#define WS_D_FREQ       12
+#define WS_D_CLK        13
+#define WS_D_CLK_RATIO  14
+#define WS_D_PLUCK      15
+#define WS_D_MOD_RATE   16
+#define WS_D_MOD_AMOUNT 17
+
+#define WS_T_RECORD        1
+#define WS_T_PLAY          2
+#define WS_T_REV           3
+#define WS_T_SPEED         4
+#define WS_T_FREQ          5
+#define WS_T_PRE_LEVEL     6
+#define WS_T_MONITOR_LEVEL 7
+#define WS_T_REC_LEVEL     8
+#define WS_T_HEAD_ORDER    9
+#define WS_T_LOOP_START    10
+#define WS_T_LOOP_END      11
+#define WS_T_LOOP_ACTIVE   12
+#define WS_T_LOOP_SCALE    13
+#define WS_T_LOOP_NEXT     14
+#define WS_T_TIMESTAMP     15
+#define WS_T_SEEK          16
